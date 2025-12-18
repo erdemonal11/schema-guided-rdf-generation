@@ -10,11 +10,11 @@ OUTPUT_DIR = Path("data/processed")
 TRIPLES_FILE = OUTPUT_DIR / "kg_triples_ids.txt"
 MAPPINGS_FILE = OUTPUT_DIR / "kg_mappings.json"
 
-MAX_PUBLICATIONS = 200_000
+MAX_PUBLICATIONS = 500_000
 
 PUBLICATION_TAGS = {
     "article", "inproceedings", "incollection", "proceedings",
-    "book", "phdthesis", "mastersthesis"
+    "book", "phdthesis", "mastersthesis", "informal"
 }
 
 def _local(tag: str) -> str:
