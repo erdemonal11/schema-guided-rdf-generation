@@ -1,1222 +1,635 @@
 {
-<<<<<<< HEAD
-  "last_updated": "2025-12-22 11:53 UTC",
-=======
-  "last_updated": "2025-12-21 08:24 UTC",
->>>>>>> 4db1192be2163403d82dd7f2f52d41bb26fb56fd
+  "last_updated": "2025-12-22 12:12 UTC",
   "stats": {
-    "novelty": 99.4,
-    "train_overlap": 0.6,
+    "novelty": 99.2,
+    "train_overlap": 0.8,
     "uniqueness": 100.0,
     "relation_diversity": 100.0,
-<<<<<<< HEAD
-    "avg_distance": 0.0568,
+    "avg_distance": 0.2606,
     "schema_validity": 100.0,
-=======
-    "avg_distance": 0.037,
->>>>>>> 4db1192be2163403d82dd7f2f52d41bb26fb56fd
     "total_generated": 1000
   },
   "relation_freq": [
     {
       "relation": "dblp:hasAuthor",
-      "count": 248,
-      "percent": 24.8
+      "count": 267,
+      "percent": 26.7
     },
     {
       "relation": "dblp:inYear",
-      "count": 255,
-      "percent": 25.5
+      "count": 224,
+      "percent": 22.4
     },
     {
       "relation": "dblp:publishedIn",
-      "count": 248,
-      "percent": 24.8
+      "count": 244,
+      "percent": 24.4
     },
     {
       "relation": "dblp:wrote",
-      "count": 249,
-      "percent": 24.9
+      "count": 265,
+      "percent": 26.5
     }
   ],
   "hypotheses": [
     {
-<<<<<<< HEAD
-      "relation": "hasAuthor",
-      "entity": "Simone Garatti",
-      "score": "0.0381",
-=======
       "relation": "Published in",
-      "entity": "1987",
-      "score": "0.0341",
+      "entity": "1973",
+      "score": "0.4191",
       "novel": true
     },
     {
-      "relation": "Venue:",
-      "entity": "APCHI",
-      "score": "0.0377",
+      "relation": "Published in",
+      "entity": "2008",
+      "score": "0.3661",
       "novel": true
     },
     {
       "relation": "hasAuthor",
-      "entity": "Masato Oguchi",
-      "score": "0.0337",
->>>>>>> 4db1192be2163403d82dd7f2f52d41bb26fb56fd
-      "novel": true
-    },
-    {
-      "relation": "Authored Paper",
-<<<<<<< HEAD
-      "entity": "Optimization of Trajectory Generation for Automatic Guided Vehicles by Genetic Algorithms.",
-      "score": "0.0414",
-=======
-      "entity": "A CMOS Voltage Reference with Temperature Sensor using Self-PTAT Current Compensation.",
-      "score": "0.0358",
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-      "entity": "SmartCloud",
-      "score": "0.0392",
->>>>>>> 4db1192be2163403d82dd7f2f52d41bb26fb56fd
-      "novel": true
-    },
-    {
-      "relation": "hasAuthor",
-<<<<<<< HEAD
-      "entity": "Ilyas \u00c7i\u00e7ekli",
-      "score": "0.0529",
-      "novel": true
-    },
-    {
-      "relation": "Published in",
-      "entity": "1992",
-      "score": "0.1116",
-      "novel": true
-    },
-    {
-      "relation": "Published in",
-      "entity": "1992",
-      "score": "0.1078",
-      "novel": true
-    },
-    {
-      "relation": "Published in",
-      "entity": "1992",
-      "score": "0.0591",
-=======
-      "entity": "Matthew L. Leavitt",
-      "score": "0.0390",
->>>>>>> 4db1192be2163403d82dd7f2f52d41bb26fb56fd
-      "novel": true
-    },
-    {
-      "relation": "Authored Paper",
-<<<<<<< HEAD
-      "entity": "A Systematic Review of Trends and Educational Research Issues of Digital-Supported Writing: A Promising English Learning Environment for Thai Higher Education.",
-      "score": "0.0409",
-=======
-      "entity": "Chinese Named Entity Recognition Using a Morpheme-Based Chunking Tagger.",
-      "score": "0.0366",
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-      "entity": "CAIP",
-      "score": "0.0432",
-      "novel": true
-    },
-    {
-      "relation": "hasAuthor",
-      "entity": "A. Paulo Coimbra",
-      "score": "0.0370",
-      "novel": true
-    },
-    {
-      "relation": "Published in",
-      "entity": "1984",
-      "score": "0.0351",
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-      "entity": "IML",
-      "score": "0.0412",
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-      "entity": "ECSQARU",
-      "score": "0.0293",
-      "novel": true
-    },
-    {
-      "relation": "hasAuthor",
-      "entity": "Tung-Yu Wu",
-      "score": "0.0430",
-      "novel": true
-    },
-    {
-      "relation": "hasAuthor",
-      "entity": "Siho Kim",
-      "score": "0.0361",
-      "novel": true
-    },
-    {
-      "relation": "hasAuthor",
-      "entity": "Matthias Jantzen",
-      "score": "0.0341",
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-      "entity": "APSEC",
-      "score": "0.0332",
-      "novel": true
-    },
-    {
-      "relation": "Published in",
-      "entity": "1989",
-      "score": "0.0393",
-      "novel": true
-    },
-    {
-      "relation": "Published in",
-      "entity": "1987",
-      "score": "0.0372",
-      "novel": true
-    },
-    {
-      "relation": "Published in",
-      "entity": "1979",
-      "score": "0.0606",
->>>>>>> 4db1192be2163403d82dd7f2f52d41bb26fb56fd
-      "novel": true
-    },
-    {
-      "relation": "Authored Paper",
-<<<<<<< HEAD
-      "entity": "On Parameterized and Kernelization Algorithms for the Hierarchical Clustering Problem.",
-      "score": "0.0471",
-=======
-      "entity": "Comparison of remote sensing based forest area and change estimation with national forestry inventory between 2000 and 2005 in China.",
-      "score": "0.0347",
+      "entity": "Li Zhou 0012",
+      "score": "0.1763",
       "novel": true
     },
     {
       "relation": "Published in",
       "entity": "1985",
-      "score": "0.0390",
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-      "entity": "VDB",
-      "score": "0.0316",
+      "score": "0.4011",
       "novel": true
     },
     {
       "relation": "Authored Paper",
-      "entity": "Heteroscedastic Gaussian based correction term for fisher discriminant analysis and its kernel extension.",
-      "score": "0.0423",
+      "entity": "Coordination of multiple autonomous intersections by using local neighborhood information.",
+      "score": "0.1815",
       "novel": true
     },
     {
       "relation": "hasAuthor",
-      "entity": "Mohammed Abdulelah Albasheri",
-      "score": "0.0339",
+      "entity": "Jerry L. Hatfield",
+      "score": "0.2055",
+      "novel": true
+    },
+    {
+      "relation": "Authored Paper",
+      "entity": "A Step Beyond Generative Multi-adversarial Networks.",
+      "score": "0.1716",
       "novel": true
     },
     {
       "relation": "Published in",
-      "entity": "2024",
-      "score": "0.0334",
+      "entity": "1993",
+      "score": "0.3653",
+      "novel": true
+    },
+    {
+      "relation": "Authored Paper",
+      "entity": "A Comparison of Different Survey Periods in Online Surveys of Persons with Eating Disorders and Their Relatives.",
+      "score": "0.1986",
+      "novel": true
+    },
+    {
+      "relation": "Venue:",
+      "entity": "MMDB",
+      "score": "0.2981",
+      "novel": true
+    },
+    {
+      "relation": "Venue:",
+      "entity": "Anatomy Ontologies for Bioinformatics",
+      "score": "0.3797",
+      "novel": true
+    },
+    {
+      "relation": "hasAuthor",
+      "entity": "Niladri Sekhar Datta",
+      "score": "0.1218",
       "novel": true
     },
     {
       "relation": "Published in",
-      "entity": "2006",
-      "score": "0.0336",
->>>>>>> 4db1192be2163403d82dd7f2f52d41bb26fb56fd
+      "entity": "2019",
+      "score": "0.4010",
+      "novel": true
+    },
+    {
+      "relation": "Venue:",
+      "entity": "DISCO@JCDL",
+      "score": "0.3749",
+      "novel": true
+    },
+    {
+      "relation": "Venue:",
+      "entity": "AFRICOMM (1)",
+      "score": "0.3292",
       "novel": true
     },
     {
       "relation": "Published in",
       "entity": "1978",
-<<<<<<< HEAD
-      "score": "0.0635",
+      "score": "0.4242",
+      "novel": true
+    },
+    {
+      "relation": "hasAuthor",
+      "entity": "Anisha Raj Seli",
+      "score": "0.1983",
+      "novel": true
+    },
+    {
+      "relation": "hasAuthor",
+      "entity": "Jesse S. Jin",
+      "score": "0.1668",
       "novel": true
     },
     {
       "relation": "Authored Paper",
-      "entity": "Visualizing Cooperative Activities with Ellimaps: The Case of Wikipedia.",
-      "score": "0.0422",
-=======
-      "score": "0.0450",
+      "entity": "Finger Photo Rescaling for Interoperability of Touchless and Touch-based Fingerprint Verification.",
+      "score": "0.1613",
       "novel": true
     },
     {
       "relation": "hasAuthor",
-      "entity": "Piero Mussio",
-      "score": "0.0333",
+      "entity": "Yi-Syuan Lin",
+      "score": "0.1792",
+      "novel": true
+    },
+    {
+      "relation": "Authored Paper",
+      "entity": "20th IEEE International Conference on Bioinformatics and Bioengineering, BIBE 2020, Cincinnati, OH, USA, October 26-28, 2020",
+      "score": "0.1781",
       "novel": true
     },
     {
       "relation": "Venue:",
-      "entity": "MuC",
-      "score": "0.0369",
+      "entity": "New Trends in Computational Collective Intelligence",
+      "score": "0.3053",
+      "novel": true
+    },
+    {
+      "relation": "Authored Paper",
+      "entity": "Pathological Changes in Peripheral Nerve Excitability.",
+      "score": "0.1839",
       "novel": true
     },
     {
       "relation": "hasAuthor",
-      "entity": "Abyayananda Maiti",
-      "score": "0.0334",
-      "novel": true
-    },
-    {
-      "relation": "hasAuthor",
-      "entity": "Feiyue Huang",
-      "score": "0.0341",
->>>>>>> 4db1192be2163403d82dd7f2f52d41bb26fb56fd
-      "novel": true
-    },
-    {
-      "relation": "hasAuthor",
-<<<<<<< HEAD
-      "entity": "Shibao Li",
-      "score": "0.0383",
+      "entity": "Yeongmyeong Park",
+      "score": "0.1747",
       "novel": true
     },
     {
       "relation": "Published in",
-      "entity": "1995",
-      "score": "0.0747",
-      "novel": true
-    },
-    {
-      "relation": "Authored Paper",
-      "entity": "Query rewriting in spatial database for access control.",
-      "score": "0.0543",
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-      "entity": "Handbook of Constraint Programming",
-      "score": "0.0678",
-=======
-      "entity": "Yiyang Ma",
-      "score": "0.0344",
->>>>>>> 4db1192be2163403d82dd7f2f52d41bb26fb56fd
+      "entity": "1974",
+      "score": "0.4531",
       "novel": true
     },
     {
       "relation": "hasAuthor",
-<<<<<<< HEAD
-      "entity": "Benxiang Zhai",
-      "score": "0.0513",
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-      "entity": "FISEE",
-      "score": "0.0653",
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-      "entity": "MSPE",
-      "score": "0.0692",
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-      "entity": "EUSAI (adjunct)",
-      "score": "0.0676",
-      "novel": true
-    },
-    {
-      "relation": "hasAuthor",
-      "entity": "Kiseok Oh",
-      "score": "0.0418",
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-      "entity": "APIA",
-      "score": "0.0619",
-      "novel": true
-    },
-    {
-      "relation": "hasAuthor",
-      "entity": "Hajar Abedi",
-      "score": "0.0495",
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-      "entity": "IIKI",
-      "score": "0.0617",
-      "novel": true
-    },
-    {
-      "relation": "Authored Paper",
-      "entity": "TCP ex machina: computer-generated congestion control.",
-      "score": "0.0558",
-      "novel": true
-    },
-    {
-      "relation": "hasAuthor",
-      "entity": "Isabelle Bichindaritz",
-      "score": "0.0483",
-      "novel": true
-    },
-    {
-      "relation": "Authored Paper",
-      "entity": "Basic Radar Altimetry Toolbox.",
-      "score": "0.0542",
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-      "entity": "Human Systems Integration to Enhance Maritime Domain Awareness for Port/Harbour Security",
-      "score": "0.0588",
-      "novel": true
-    },
-    {
-      "relation": "Authored Paper",
-      "entity": "Natural Deadlock Resolution for Multi-agent Multi-Swarm Navigation.",
-      "score": "0.0379",
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-      "entity": "Context Aware Human-Robot and Human-Agent Interaction",
-      "score": "0.0551",
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-      "entity": "Computational Linguistics - Applications",
-      "score": "0.0523",
+      "entity": "Hieu M. Vu",
+      "score": "0.1644",
       "novel": true
     },
     {
       "relation": "Published in",
-      "entity": "1990",
-      "score": "0.0654",
-      "novel": true
-    },
-    {
-      "relation": "Published in",
-      "entity": "2017",
-      "score": "0.0616",
+      "entity": "2007",
+      "score": "0.3616",
       "novel": true
     },
     {
       "relation": "Authored Paper",
-      "entity": "A Sound Deep Embedding of Arbitrary Normal Modal Logics in Coq.",
-      "score": "0.0423",
+      "entity": "Analysis of the Detectability of Lava Flow Formations on Venus by Subsurface Radar Sounding Simulations.",
+      "score": "0.1683",
       "novel": true
     },
     {
-      "relation": "Published in",
-      "entity": "2023",
-      "score": "0.0805",
-      "novel": true
-    },
-    {
-      "relation": "Published in",
-      "entity": "1969",
-      "score": "0.0714",
-      "novel": true
-    },
-    {
-      "relation": "Authored Paper",
-      "entity": "Research on Computer Big Data Industrial Structure Adaptation Simulation System.",
-      "score": "0.0369",
+      "relation": "hasAuthor",
+      "entity": "Yuhang Xu",
+      "score": "0.1860",
       "novel": true
     },
     {
       "relation": "Venue:",
-      "entity": "AAAI Spring Symposium: Data Driven Wellness",
-      "score": "0.0809",
+      "entity": "ACHS@JCDL",
+      "score": "0.3016",
       "novel": true
     },
     {
       "relation": "Published in",
-      "entity": "1989",
-      "score": "0.0845",
+      "entity": "2026",
+      "score": "0.3952",
+      "novel": true
+    },
+    {
+      "relation": "Authored Paper",
+      "entity": "Reflecting Intelligent Surfaces Assisted High-Rank Ultra Massive MIMO Terahertz Channels.",
+      "score": "0.1880",
+      "novel": true
+    },
+    {
+      "relation": "Authored Paper",
+      "entity": "Causal Diagrams.",
+      "score": "0.1854",
+      "novel": true
+    },
+    {
+      "relation": "hasAuthor",
+      "entity": "Eirina Bourtsoulatze",
+      "score": "0.1749",
+      "novel": true
+    },
+    {
+      "relation": "Authored Paper",
+      "entity": "Rough Sets: Foundations and Perspectives.",
+      "score": "0.1955",
+      "novel": true
+    },
+    {
+      "relation": "Authored Paper",
+      "entity": "A model-based retrospective analysis of the fixed-ratio oscillometric blood pressure measurement.",
+      "score": "0.1839",
+      "novel": true
+    },
+    {
+      "relation": "Authored Paper",
+      "entity": "Fast Multiresolution Reads of Massive Simulation Datasets.",
+      "score": "0.1745",
+      "novel": true
+    },
+    {
+      "relation": "hasAuthor",
+      "entity": "Aditya Akilesh Mantha",
+      "score": "0.1608",
+      "novel": true
+    },
+    {
+      "relation": "Venue:",
+      "entity": "BPM Demos",
+      "score": "0.2691",
+      "novel": true
+    },
+    {
+      "relation": "hasAuthor",
+      "entity": "K\u00e5re Lines",
+      "score": "0.1474",
+      "novel": true
+    },
+    {
+      "relation": "Authored Paper",
+      "entity": "8.6 A full-duplex line driver for Gigabit Ethernet with rail-to-rail class-AB output stage in 28nm CMOS.",
+      "score": "0.2097",
+      "novel": true
+    },
+    {
+      "relation": "hasAuthor",
+      "entity": "David G. Asatryan",
+      "score": "0.1314",
+      "novel": true
+    },
+    {
+      "relation": "Authored Paper",
+      "entity": "Combining SAR and scatterometer data to improve high resolution wind speed retrievals.",
+      "score": "0.1319",
+      "novel": true
+    },
+    {
+      "relation": "Authored Paper",
+      "entity": "A Modular Framework for the Automatic Reconstruction of Shredded Documents.",
+      "score": "0.2305",
+      "novel": true
+    },
+    {
+      "relation": "hasAuthor",
+      "entity": "Yoshiaki Taniai",
+      "score": "0.1626",
       "novel": true
     },
     {
       "relation": "Published in",
-      "entity": "2023",
-      "score": "0.0720",
-      "novel": true
-    },
-    {
-      "relation": "hasAuthor",
-      "entity": "Juan-Cruz Gallio",
-      "score": "0.0372",
-      "novel": true
-    },
-    {
-      "relation": "hasAuthor",
-      "entity": "Wassim M. Haddad 0001",
-      "score": "0.0367",
-      "novel": true
-    },
-    {
-      "relation": "hasAuthor",
-      "entity": "Christoph Bergmeir",
-      "score": "0.0404",
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-      "entity": "Foundations and Applications of Multi-Agent Systems",
-      "score": "0.0655",
-      "novel": true
-    },
-    {
-      "relation": "hasAuthor",
-      "entity": "Birgit van Huijgevoort",
-      "score": "0.0395",
-      "novel": true
-    },
-    {
-      "relation": "hasAuthor",
-      "entity": "Josef Mal\u00edk",
-      "score": "0.0410",
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-      "entity": "TSD (1)",
-      "score": "0.0558",
+      "entity": "2019",
+      "score": "0.3866",
       "novel": true
     },
     {
       "relation": "Authored Paper",
-      "entity": "Algorithms for Propositional KB Approximation.",
-      "score": "0.0429",
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-      "entity": "Handbuch Industrie 4.0 (1)",
-      "score": "0.0845",
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-      "entity": "SIGIR",
-      "score": "0.0569",
-      "novel": true
-    },
-    {
-      "relation": "hasAuthor",
-      "entity": "Andrew Wabnitz",
-      "score": "0.0586",
-      "novel": true
-    },
-    {
-      "relation": "hasAuthor",
-      "entity": "Ranjan K. Mallik",
-      "score": "0.0390",
+      "entity": "Information Extraction and Classification from Free Text Using a Neural Approach.",
+      "score": "0.1761",
       "novel": true
     },
     {
       "relation": "Authored Paper",
-      "entity": "Evaluating Edge Processing Requirements in Next Generation IoT Network Architectures.",
-      "score": "0.0393",
+      "entity": "Highly accurate integration of track motionsn.",
+      "score": "0.1716",
       "novel": true
     },
     {
       "relation": "Venue:",
-      "entity": "Fractional Order Control and Synchronization of Chaotic Systems",
-      "score": "0.0838",
-      "novel": true
-    },
-    {
-      "relation": "hasAuthor",
-      "entity": "Han Bao 0002",
-      "score": "0.0805",
+      "entity": "Advanced Topics in Computer Vision",
+      "score": "0.3287",
       "novel": true
     },
     {
       "relation": "Authored Paper",
-      "entity": "Digital Control of Parallel-Connected DC-DC Converters.",
-      "score": "0.0501",
+      "entity": "Property Exchange Method for Automatic Generation of Computer-Based Learning Games.",
+      "score": "0.1755",
+      "novel": true
+    },
+    {
+      "relation": "Authored Paper",
+      "entity": "Ethics and Policy of Forensic Biometrics.",
+      "score": "0.1834",
       "novel": true
     },
     {
       "relation": "Published in",
-      "entity": "2017",
-      "score": "0.0897",
+      "entity": "2010",
+      "score": "0.4676",
       "novel": true
     },
     {
-      "relation": "hasAuthor",
-      "entity": "Yanrong Chen",
-      "score": "0.0419",
+      "relation": "Authored Paper",
+      "entity": "Innovative practices session 9C: Implications of power delivery network for validation and testing.",
+      "score": "0.1808",
       "novel": true
     },
     {
-      "relation": "hasAuthor",
-      "entity": "Pio Ong",
-=======
-      "entity": "Edith Elkind",
->>>>>>> 4db1192be2163403d82dd7f2f52d41bb26fb56fd
-      "score": "0.0370",
+      "relation": "Venue:",
+      "entity": "WoCoUQ",
+      "score": "0.3089",
       "novel": true
     },
     {
-<<<<<<< HEAD
+      "relation": "Authored Paper",
+      "entity": "Issues in Deep Submicron State-of-the-Art ESD Design.",
+      "score": "0.1674",
+      "novel": true
+    },
+    {
       "relation": "Published in",
-      "entity": "1994",
-      "score": "0.0690",
-=======
-      "relation": "hasAuthor",
-      "entity": "Andrea Loreggia",
-      "score": "0.0374",
+      "entity": "2010",
+      "score": "0.3421",
       "novel": true
     },
     {
-      "relation": "hasAuthor",
-      "entity": "Hongwu Yang",
-      "score": "0.0381",
-      "novel": true
-    },
-    {
-      "relation": "hasAuthor",
-      "entity": "Neeldhara Misra",
-      "score": "0.0347",
->>>>>>> 4db1192be2163403d82dd7f2f52d41bb26fb56fd
-      "novel": true
-    },
-    {
-      "relation": "Authored Paper",
-<<<<<<< HEAD
-      "entity": "FedFR: Joint Optimization Federated Framework for Generic and Personalized Face Recognition.",
-      "score": "0.0430",
-      "novel": true
-    },
-    {
-      "relation": "Authored Paper",
-      "entity": "Grid-based asynchronous replica exchange.",
-      "score": "0.0438",
-=======
-      "entity": "Value-Decomposition Multi-Agent Actor-Critics.",
-      "score": "0.0325",
+      "relation": "Venue:",
+      "entity": "EMC2@HPCA/CVPR/ISCA",
+      "score": "0.3319",
       "novel": true
     },
     {
       "relation": "Venue:",
       "entity": "SeCO Workshop",
-      "score": "0.0528",
->>>>>>> 4db1192be2163403d82dd7f2f52d41bb26fb56fd
+      "score": "0.3275",
+      "novel": true
+    },
+    {
+      "relation": "hasAuthor",
+      "entity": "Zackory Erickson",
+      "score": "0.2465",
+      "novel": true
+    },
+    {
+      "relation": "Venue:",
+      "entity": "Symposium on Semantics of Algorithmic Languages",
+      "score": "0.2934",
+      "novel": true
+    },
+    {
+      "relation": "Venue:",
+      "entity": "Computational Intelligence Based on Lattice Theory",
+      "score": "0.2558",
       "novel": true
     },
     {
       "relation": "Published in",
-<<<<<<< HEAD
-      "entity": "1998",
-      "score": "0.0776",
+      "entity": "1984",
+      "score": "0.4371",
       "novel": true
     },
     {
       "relation": "Authored Paper",
-      "entity": "Automatically designing the behaviours of falling paper: the emergence of non-trivial behaviours via interaction with the physical world.",
-      "score": "0.0476",
-=======
-      "entity": "1976",
-      "score": "0.0446",
->>>>>>> 4db1192be2163403d82dd7f2f52d41bb26fb56fd
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-<<<<<<< HEAD
-      "entity": "SIGME",
-      "score": "0.0672",
-      "novel": true
-    },
-    {
-      "relation": "Published in",
-      "entity": "1998",
-      "score": "0.0654",
+      "entity": "Retrieval of coloured dissolved organic matter with machine learning methods.",
+      "score": "0.2452",
       "novel": true
     },
     {
       "relation": "hasAuthor",
-      "entity": "Josselin Aval",
-      "score": "0.0376",
-=======
-      "entity": "Encyclopedia of Computer Graphics and Games",
-      "score": "0.0449",
->>>>>>> 4db1192be2163403d82dd7f2f52d41bb26fb56fd
+      "entity": "Aleksej Chinaev",
+      "score": "0.1752",
       "novel": true
     },
     {
       "relation": "Venue:",
-<<<<<<< HEAD
-      "entity": "TOOLS (28)",
-      "score": "0.0857",
-      "novel": true
-    },
-    {
-      "relation": "Published in",
-      "entity": "1969",
-      "score": "0.0755",
+      "entity": "Meeting Security Challenges Through Data Analytics and Decision Support",
+      "score": "0.2814",
       "novel": true
     },
     {
       "relation": "Authored Paper",
-      "entity": "Cochlear modelling and analysis under parameter uncertainty.",
-      "score": "0.0351",
+      "entity": "Detecting Out-of-Distribution Examples with Gram Matrices.",
+      "score": "0.2087",
       "novel": true
     },
     {
       "relation": "Authored Paper",
-      "entity": "A Hybrid Strategy for Italian Word Sense Disambiguation.",
-      "score": "0.0480",
+      "entity": "Relevance of Evidence in Bayesian Networks.",
+      "score": "0.1752",
       "novel": true
     },
     {
-      "relation": "Published in",
-      "entity": "1978",
-      "score": "0.0641",
+      "relation": "hasAuthor",
+      "entity": "Yiyu Shen",
+      "score": "0.1509",
       "novel": true
     },
     {
       "relation": "Authored Paper",
-      "entity": "A financial cost metric for result caching.",
-=======
-      "entity": "ESORICS Workshops (2)",
->>>>>>> 4db1192be2163403d82dd7f2f52d41bb26fb56fd
-      "score": "0.0426",
+      "entity": "Extending DLR with Labelled Tuples, Projections, Functional Dependencies and Objectification.",
+      "score": "0.2036",
       "novel": true
     },
     {
       "relation": "Venue:",
-<<<<<<< HEAD
-      "entity": "Innovations in Knowledge Management",
-      "score": "0.0555",
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-      "entity": "Springer Handbook of Robotics, 2nd Ed.",
-      "score": "0.0672",
-      "novel": true
-    },
-    {
-      "relation": "hasAuthor",
-      "entity": "Krzysztof Jurczuk",
-      "score": "0.0397",
-      "novel": true
-    },
-    {
-      "relation": "hasAuthor",
-      "entity": "Andy M. Tyrrell",
-      "score": "0.0388",
-      "novel": true
-    },
-    {
-      "relation": "hasAuthor",
-      "entity": "Xinchao Zhang",
-      "score": "0.0525",
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-      "entity": "Modeling and Simulation-Based Systems Engineering Handbook",
-      "score": "0.0514",
-      "novel": true
-    },
-    {
-      "relation": "Published in",
-      "entity": "2023",
-      "score": "0.0567",
+      "entity": "Quality Measures in Data Mining",
+      "score": "0.3945",
       "novel": true
     },
     {
       "relation": "Authored Paper",
-      "entity": "Florida International University and University of Miami TRECVID 2008 - High Level Feature Extraction.",
-      "score": "0.0398",
-      "novel": true
-    },
-    {
-      "relation": "Published in",
-      "entity": "2014",
-      "score": "0.0595",
+      "entity": "Light Field.",
+      "score": "0.1648",
       "novel": true
     },
     {
       "relation": "Venue:",
-      "entity": "NetAI@SIGCOMM",
-      "score": "0.0566",
-      "novel": true
-    },
-    {
-      "relation": "Published in",
-      "entity": "1997",
-      "score": "0.0857",
+      "entity": "What is Global Engineering Education For? The Making of International Educators, Part III",
+      "score": "0.3389",
       "novel": true
     },
     {
       "relation": "Venue:",
-      "entity": "ML4MHD",
-      "score": "0.0567",
+      "entity": "ICHI Workshops",
+      "score": "0.3500",
+      "novel": true
+    },
+    {
+      "relation": "Published in",
+      "entity": "1968",
+      "score": "0.3886",
+      "novel": true
+    },
+    {
+      "relation": "Venue:",
+      "entity": "Methods, Models and Tools for Fault Tolerance",
+      "score": "0.3053",
       "novel": true
     },
     {
       "relation": "hasAuthor",
-      "entity": "Elena Redkina",
-      "score": "0.0431",
+      "entity": "Jingchao Peng",
+      "score": "0.1650",
+      "novel": true
+    },
+    {
+      "relation": "Published in",
+      "entity": "1975",
+      "score": "0.3747",
+      "novel": true
+    },
+    {
+      "relation": "Published in",
+      "entity": "1983",
+      "score": "0.3686",
+      "novel": true
+    },
+    {
+      "relation": "Published in",
+      "entity": "1991",
+      "score": "0.4008",
+      "novel": true
+    },
+    {
+      "relation": "hasAuthor",
+      "entity": "Kang-Chuan Chang",
+      "score": "0.1398",
+      "novel": true
+    },
+    {
+      "relation": "Published in",
+      "entity": "2011",
+      "score": "0.4323",
+      "novel": true
+    },
+    {
+      "relation": "Venue:",
+      "entity": "Artificial General Intelligence",
+      "score": "0.2819",
+      "novel": true
+    },
+    {
+      "relation": "Venue:",
+      "entity": "ATE",
+      "score": "0.2920",
+      "novel": true
+    },
+    {
+      "relation": "hasAuthor",
+      "entity": "Miguel Gutierrez",
+      "score": "0.1438",
       "novel": true
     },
     {
       "relation": "Authored Paper",
-      "entity": "Using Knowledge to Speed Learning: A Comparison of Knowledge-based Cascade-correlation and Multi-task Learning.",
-      "score": "0.0515",
+      "entity": "Evaluation of web accessibility on the maps domain.",
+      "score": "0.1947",
       "novel": true
     },
     {
       "relation": "Authored Paper",
-      "entity": "The causes of path inflation.",
-      "score": "0.0401",
+      "entity": "Using Self Organizing Maps to Analyze Demographics and Swing State Voting in the 2008 U.S. Presidential Election.",
+      "score": "0.2098",
+      "novel": true
+    },
+    {
+      "relation": "Authored Paper",
+      "entity": "Arc-Consistency and Arc-Consistency Again.",
+      "score": "0.1828",
       "novel": true
     },
     {
       "relation": "hasAuthor",
-      "entity": "Amogh Mannekote",
-      "score": "0.0413",
-=======
-      "entity": "ICAC",
-      "score": "0.0326",
+      "entity": "Kostantinos Michailidis",
+      "score": "0.1858",
       "novel": true
     },
     {
       "relation": "hasAuthor",
-      "entity": "Andrew Cropper",
-      "score": "0.0321",
+      "entity": "Juncheng Zhang",
+      "score": "0.1410",
+      "novel": true
+    },
+    {
+      "relation": "Authored Paper",
+      "entity": "Weakly Supervised Temporal Action Localization Through Learning Explicit Subspaces for Action and Context.",
+      "score": "0.2470",
+      "novel": true
+    },
+    {
+      "relation": "hasAuthor",
+      "entity": "Mohammad Amin Mirzaei",
+      "score": "0.1928",
       "novel": true
     },
     {
       "relation": "Published in",
-      "entity": "2004",
-      "score": "0.0286",
+      "entity": "2005",
+      "score": "0.3854",
       "novel": true
     },
     {
       "relation": "hasAuthor",
-      "entity": "Shouling Ji",
-      "score": "0.0340",
-      "novel": true
-    },
-    {
-      "relation": "hasAuthor",
-      "entity": "Matthias Hollick",
-      "score": "0.0351",
-      "novel": true
-    },
-    {
-      "relation": "hasAuthor",
-      "entity": "Carlos Hern\u00e1ndez-Espinosa",
-      "score": "0.0347",
+      "entity": "Siu Hua Tay",
+      "score": "0.1168",
       "novel": true
     },
     {
       "relation": "Venue:",
-      "entity": "WG",
-      "score": "0.0259",
->>>>>>> 4db1192be2163403d82dd7f2f52d41bb26fb56fd
+      "entity": "CSOS (2)",
+      "score": "0.3349",
+      "novel": true
+    },
+    {
+      "relation": "hasAuthor",
+      "entity": "Donggeun Lee",
+      "score": "0.1458",
+      "novel": true
+    },
+    {
+      "relation": "hasAuthor",
+      "entity": "Juuso Pajunen",
+      "score": "0.1590",
+      "novel": true
+    },
+    {
+      "relation": "Authored Paper",
+      "entity": "Ants can solve the parallel drone scheduling traveling salesman problem.",
+      "score": "0.1572",
       "novel": true
     },
     {
       "relation": "Published in",
-<<<<<<< HEAD
-      "entity": "2017",
-      "score": "0.0658",
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-      "entity": "Advanced Methods for Computational Collective Intelligence",
-      "score": "0.0580",
+      "entity": "2002",
+      "score": "0.3842",
       "novel": true
     },
     {
       "relation": "Published in",
       "entity": "2008",
-      "score": "0.0683",
+      "score": "0.4004",
       "novel": true
     },
     {
       "relation": "Venue:",
-      "entity": "Handbook of Genetic Programming Applications",
-      "score": "0.0513",
-      "novel": true
-    },
-    {
-      "relation": "Published in",
-      "entity": "1982",
-      "score": "0.0588",
-      "novel": true
-    },
-    {
-      "relation": "Published in",
-      "entity": "2014",
-      "score": "0.0787",
-=======
-      "entity": "1987",
-      "score": "0.0320",
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-      "entity": "JFPLC",
-      "score": "0.0326",
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-      "entity": "Haskell",
-      "score": "0.0298",
-      "novel": true
-    },
-    {
-      "relation": "Authored Paper",
-      "entity": "Using a Social Robot as a Hotel Assessment Tool.",
-      "score": "0.0442",
-      "novel": true
-    },
-    {
-      "relation": "hasAuthor",
-      "entity": "Andr\u00e9 Scolari Concei\u00e7\u00e3o",
-      "score": "0.0362",
-      "novel": true
-    },
-    {
-      "relation": "Authored Paper",
-      "entity": "Towards Efficient Cryptography for Privacy Preserving Data Mining in Distributed Systems.",
-      "score": "0.0382",
->>>>>>> 4db1192be2163403d82dd7f2f52d41bb26fb56fd
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-<<<<<<< HEAD
-      "entity": "Brain-Inspired Information Technology",
-      "score": "0.0884",
-=======
-      "entity": "TRUST",
-      "score": "0.0755",
->>>>>>> 4db1192be2163403d82dd7f2f52d41bb26fb56fd
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-<<<<<<< HEAD
-      "entity": "CISIS",
-      "score": "0.0507",
-=======
-      "entity": "ANNPR",
-      "score": "0.0471",
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-      "entity": "GEC Summit",
-      "score": "0.0432",
-      "novel": true
-    },
-    {
-      "relation": "hasAuthor",
-      "entity": "Kazuyuki Sakai",
-      "score": "0.0388",
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-      "entity": "Handbook of Algorithms for Physical Design Automation",
-      "score": "0.0363",
->>>>>>> 4db1192be2163403d82dd7f2f52d41bb26fb56fd
-      "novel": true
-    },
-    {
-      "relation": "Published in",
-<<<<<<< HEAD
-      "entity": "1997",
-      "score": "0.0847",
-=======
-      "entity": "1985",
-      "score": "0.0345",
-      "novel": true
-    },
-    {
-      "relation": "Authored Paper",
-      "entity": "Common Unfoldings of Polyominoes and Polycubes.",
-      "score": "0.0344",
-      "novel": true
-    },
-    {
-      "relation": "hasAuthor",
-      "entity": "Babak Akhgar",
-      "score": "0.0498",
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-      "entity": "LANC",
-      "score": "0.0342",
-      "novel": true
-    },
-    {
-      "relation": "hasAuthor",
-      "entity": "Ayan Chakrabarti",
-      "score": "0.0338",
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-      "entity": "WADS",
-      "score": "0.0287",
-      "novel": true
-    },
-    {
-      "relation": "Published in",
-      "entity": "1990",
-      "score": "0.0393",
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-      "entity": "QTNA",
-      "score": "0.0295",
-      "novel": true
-    },
-    {
-      "relation": "hasAuthor",
-      "entity": "Mart\u00edn Carpio",
-      "score": "0.0346",
-      "novel": true
-    },
-    {
-      "relation": "Authored Paper",
-      "entity": "Performance Comparison of CDMA2000 1x and LTE for Voice Service.",
-      "score": "0.0386",
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-      "entity": "CICBA (2)",
-      "score": "0.0416",
-      "novel": true
-    },
-    {
-      "relation": "hasAuthor",
-      "entity": "Kei Kuramoto",
-      "score": "0.0368",
-      "novel": true
-    },
-    {
-      "relation": "Published in",
-      "entity": "2022",
-      "score": "0.0411",
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-      "entity": "CACSD",
-      "score": "0.0432",
-      "novel": true
-    },
-    {
-      "relation": "Authored Paper",
-      "entity": "Identifying damaged buildings from high-resolution satellite imagery in hazardous areas using morphological operators.",
-      "score": "0.0367",
-      "novel": true
-    },
-    {
-      "relation": "Published in",
-      "entity": "1992",
-      "score": "0.0385",
-      "novel": true
-    },
-    {
-      "relation": "Published in",
-      "entity": "2018",
-      "score": "0.0286",
->>>>>>> 4db1192be2163403d82dd7f2f52d41bb26fb56fd
-      "novel": true
-    },
-    {
-      "relation": "Published in",
-<<<<<<< HEAD
-      "entity": "2008",
-      "score": "0.0588",
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-      "entity": "Advances of Computational Intelligence in Industrial Systems",
-      "score": "0.0528",
-=======
-      "entity": "2017",
-      "score": "0.0341",
->>>>>>> 4db1192be2163403d82dd7f2f52d41bb26fb56fd
-      "novel": true
-    },
-    {
-      "relation": "Authored Paper",
-<<<<<<< HEAD
-      "entity": "Web Service Discovery and Dynamic Invocation Based on UDDI/OWL-S.",
-      "score": "0.0554",
-      "novel": true
-    },
-    {
-      "relation": "Authored Paper",
-      "entity": "Analyzing and Interrogating Biological Networks (Abstract).",
-      "score": "0.0416",
-=======
-      "entity": "Perturbing Branching Heuristics in Constraint Solving.",
-      "score": "0.0360",
-      "novel": true
-    },
-    {
-      "relation": "hasAuthor",
-      "entity": "Liang Zhao 0001",
-      "score": "0.0345",
-      "novel": true
-    },
-    {
-      "relation": "Published in",
-      "entity": "1992",
-      "score": "0.0436",
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-      "entity": "ICS",
-      "score": "0.0326",
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-      "entity": "WADS",
-      "score": "0.0457",
-      "novel": true
-    },
-    {
-      "relation": "hasAuthor",
-      "entity": "Yifan Zhang 0004",
-      "score": "0.0329",
-      "novel": true
-    },
-    {
-      "relation": "Authored Paper",
-      "entity": "Incorporating Privacy into the Undergraduate Curriculum.",
-      "score": "0.0423",
-      "novel": true
-    },
-    {
-      "relation": "Authored Paper",
-      "entity": "Dayglow removal from FUV auroral images.",
-      "score": "0.0337",
-      "novel": true
-    },
-    {
-      "relation": "Authored Paper",
-      "entity": "MDS.",
-      "score": "0.0356",
-      "novel": true
-    },
-    {
-      "relation": "Authored Paper",
-      "entity": "Intellectual Property Rights in Environmental and Natural History Collections: A Preliminary Discussion.",
-      "score": "0.0343",
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-      "entity": "Reasonableness and Effectiveness in Argumentative Discourse",
-      "score": "0.0332",
-      "novel": true
-    },
-    {
-      "relation": "Authored Paper",
-      "entity": "Organizational Memory: Knowledge Acquisition, Integration, and Retrieval Issues.",
-      "score": "0.0681",
-      "novel": true
-    },
-    {
-      "relation": "Authored Paper",
-      "entity": "Coevolutionary Dynamics between Roles and Social Sensitivity in an Extended Minority Game.",
-      "score": "0.0360",
-      "novel": true
-    },
-    {
-      "relation": "Authored Paper",
-      "entity": "Predicting Solvability and Difficulty of Sokoban Puzzles.",
-      "score": "0.0376",
-      "novel": true
-    },
-    {
-      "relation": "hasAuthor",
-      "entity": "Alessandra Russo",
-      "score": "0.0334",
-      "novel": true
-    },
-    {
-      "relation": "hasAuthor",
-      "entity": "Namphung Peimyoo",
-      "score": "0.0486",
-      "novel": true
-    },
-    {
-      "relation": "Published in",
-      "entity": "1997",
-      "score": "0.0382",
-      "novel": true
-    },
-    {
-      "relation": "Published in",
-      "entity": "1978",
-      "score": "0.0567",
-      "novel": true
-    },
-    {
-      "relation": "Published in",
-      "entity": "2022",
-      "score": "0.0316",
-      "novel": true
-    },
-    {
-      "relation": "Authored Paper",
-      "entity": "On the limits of positioning-based pedestrian risk awareness.",
-      "score": "0.0382",
-      "novel": true
-    },
-    {
-      "relation": "hasAuthor",
-      "entity": "Bo Xu 0002",
-      "score": "0.0342",
-      "novel": true
-    },
-    {
-      "relation": "Venue:",
-      "entity": "Encyclopedia of Information Ethics and Security",
-      "score": "0.0304",
-      "novel": true
-    },
-    {
-      "relation": "Published in",
-      "entity": "1989",
-      "score": "0.0448",
->>>>>>> 4db1192be2163403d82dd7f2f52d41bb26fb56fd
+      "entity": "VLC",
+      "score": "0.3633",
       "novel": true
     }
   ]
