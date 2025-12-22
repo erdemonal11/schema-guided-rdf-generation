@@ -71,10 +71,35 @@ def main():
     relation_diversity = (
         (used_relations / total_relations) * 100 if total_relations > 0 else 0
     )
+    relation_freq = []
+    for rel, cnt in rel_counts.items():
+        pct = (cnt / total) * 100 if total > 0 else 0
+        relation_freq.append({"relation": rel, "count": cnt, "percent": round(pct, 2)})
+    relation_freq.sort(key=lambda x: x["relation"])
 
     avg_distance = (
         sum(score for _, _, _, score in synthetic_triples) / total if total > 0 else 0
     )
+
+    relation_tail_rules = {
+        "dblp:wrote": "pub_",
+        "dblp:hasAuthor": "author_",
+        "dblp:publishedIn": "venue_",
+        "dblp:inYear": "year_",
+    }
+    relation_head_rules = {
+        "dblp:wrote": "author_",
+        "dblp:hasAuthor": "pub_",
+        "dblp:publishedIn": "pub_",
+        "dblp:inYear": "pub_",
+    }
+    valid_count = 0
+    for h, r, t, _ in synthetic_triples:
+        head_ok = h.startswith(relation_head_rules.get(r, ""))
+        tail_ok = t.startswith(relation_tail_rules.get(r, ""))
+        if head_ok and tail_ok:
+            valid_count += 1
+    schema_validity = (valid_count / total) * 100 if total > 0 else 0
 
     decoded_hypotheses = []
     for i, (h, r, t, score) in enumerate(synthetic_triples):
@@ -99,8 +124,10 @@ def main():
             "uniqueness": round(uniqueness_score, 2),
             "relation_diversity": round(relation_diversity, 2),
             "avg_distance": round(avg_distance, 4),
+            "schema_validity": round(schema_validity, 2),
             "total_generated": total
         },
+        "relation_freq": relation_freq,
         "hypotheses": decoded_hypotheses
     }
 

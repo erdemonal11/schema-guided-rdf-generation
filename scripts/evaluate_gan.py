@@ -25,7 +25,7 @@ def evaluate():
 
     synthetic_triples = []
     with open(latest_file, 'r', encoding="utf-8") as f:
-        next(f)  
+        next(f)
         for line in f:
             parts = line.strip().split('\t')
             if len(parts) >= 3:
@@ -37,7 +37,7 @@ def evaluate():
 
     novel_count = sum(1 for triple in synthetic_triples if triple not in real_triples)
     overlap_count = total_gen - novel_count
-
+            
     novelty_score = (novel_count / total_gen) * 100
     overlap_score = (overlap_count / total_gen) * 100
     unique_gen = len(set(synthetic_triples))

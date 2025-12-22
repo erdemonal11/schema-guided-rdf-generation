@@ -23,7 +23,8 @@ LOG_FILE = Path("data/processed/training_log.csv")
 EMBEDDING_DIM = 64
 HIDDEN_DIM = 128
 BATCH_SIZE = 1024
-EPOCHS = 20
+MAX_EPOCHS = 1000
+EPOCHS_PER_RUN = 2
 LR = 0.0002
 CLIP_VALUE = 0.01
 
@@ -46,13 +47,16 @@ def train():
     SYNTHETIC_DIR.mkdir(parents=True, exist_ok=True)
     CHECKPOINT_DIR.mkdir(parents=True, exist_ok=True)
 
+    start_epoch = 0
+
     if CHECKPOINT_PATH.exists():
         print(f"[INFO] Loading previous brain from: {CHECKPOINT_PATH}")
         try:
             checkpoint = torch.load(CHECKPOINT_PATH, map_location=device, weights_only=False)
-            G.load_state_dict(checkpoint['G_state'])
-            D.load_state_dict(checkpoint['D_state'])
-            print("[SUCCESS] Checkpoint loaded. Resuming training.")
+            G.load_state_dict(checkpoint["G_state"])
+            D.load_state_dict(checkpoint["D_state"])
+            start_epoch = int(checkpoint.get("epoch", 0))
+            print(f"[SUCCESS] Checkpoint loaded. Resuming training from epoch {start_epoch}.")
         except Exception as e:
             print(f"[WARN] Could not load checkpoint: {e}")
             print("[INFO] Starting fresh training.")
@@ -63,56 +67,60 @@ def train():
         with open(LOG_FILE, "w") as f:
             f.write("Epoch,D_Loss,G_Loss\n")
 
-    print(f"[INFO] Starting WGAN training on {device}...")
+    if start_epoch >= MAX_EPOCHS:
+        print(f"[INFO] MAX_EPOCHS={MAX_EPOCHS} already reached. Skipping further training.")
+    else:
+        end_epoch = min(start_epoch + EPOCHS_PER_RUN, MAX_EPOCHS)
+        print(f"[INFO] Starting WGAN training on {device} from epoch {start_epoch+1} to {end_epoch}...")
 
-    for epoch in range(EPOCHS):
-        total_d_loss = 0
-        total_g_loss = 0
-        
-        pbar = tqdm(dataloader, desc=f"Epoch {epoch+1}/{EPOCHS}", leave=False)
-        
-        for i, batch in enumerate(pbar):
-            real_h = batch['head'].to(device)
-            real_r = batch['relation'].to(device)
-            real_t = batch['tail'].to(device)
-            batch_len = real_h.size(0)
-
-            optimizer_D.zero_grad()
-
-            real_t_emb = D.get_entity_embedding(real_t)
-            d_real = D(real_h, real_r, real_t_emb).mean()
-
-            noise = torch.randn(batch_len, EMBEDDING_DIM).to(device)
-            fake_t_emb = G(noise, real_r).detach()
-            d_fake = D(real_h, real_r, fake_t_emb).mean()
-
-            d_loss = -(d_real - d_fake)
-            d_loss.backward()
-            optimizer_D.step()
-
-            for p in D.parameters():
-                p.data.clamp_(-CLIP_VALUE, CLIP_VALUE)
-
-            total_d_loss += d_loss.item()
-
-            if i % 5 == 0:
-                optimizer_G.zero_grad()
-                noise = torch.randn(batch_len, EMBEDDING_DIM).to(device)
-                fake_t_emb = G(noise, real_r)
-                g_loss = -D(real_h, real_r, fake_t_emb).mean()
-                g_loss.backward()
-                optimizer_G.step()
-                total_g_loss += g_loss.item()
+        for epoch in range(start_epoch, end_epoch):
+            total_d_loss = 0
+            total_g_loss = 0
             
-            pbar.set_postfix({'D_Loss': f"{d_loss.item():.4f}"})
+            pbar = tqdm(dataloader, desc=f"Epoch {epoch+1}/{MAX_EPOCHS}", leave=False)
+            
+            for i, batch in enumerate(pbar):
+                real_h = batch['head'].to(device)
+                real_r = batch['relation'].to(device)
+                real_t = batch['tail'].to(device)
+                batch_len = real_h.size(0)
 
-        avg_d_loss = total_d_loss / len(dataloader)
-        avg_g_loss = total_g_loss / len(dataloader)
-        
-        with open(LOG_FILE, "a") as f:
-            f.write(f"{epoch+1},{avg_d_loss:.6f},{avg_g_loss:.6f}\n")
+                optimizer_D.zero_grad()
 
-    print(f"[FINISHED] Training complete.")
+                real_t_emb = D.get_entity_embedding(real_t)
+                d_real = D(real_h, real_r, real_t_emb).mean()
+
+                noise = torch.randn(batch_len, EMBEDDING_DIM).to(device)
+                fake_t_emb = G(noise, real_r).detach()
+                d_fake = D(real_h, real_r, fake_t_emb).mean()
+
+                d_loss = -(d_real - d_fake)
+                d_loss.backward()
+                optimizer_D.step()
+
+                for p in D.parameters():
+                    p.data.clamp_(-CLIP_VALUE, CLIP_VALUE)
+
+                total_d_loss += d_loss.item()
+
+                if i % 5 == 0:
+                    optimizer_G.zero_grad()
+                    noise = torch.randn(batch_len, EMBEDDING_DIM).to(device)
+                    fake_t_emb = G(noise, real_r)
+                    g_loss = -D(real_h, real_r, fake_t_emb).mean()
+                    g_loss.backward()
+                    optimizer_G.step()
+                    total_g_loss += g_loss.item()
+                
+                pbar.set_postfix({'D_Loss': f"{d_loss.item():.4f}"})
+
+            avg_d_loss = total_d_loss / len(dataloader)
+            avg_g_loss = total_g_loss / len(dataloader)
+            
+            with open(LOG_FILE, "a") as f:
+                f.write(f"{epoch+1},{avg_d_loss:.6f},{avg_g_loss:.6f}\n")
+
+    print(f"[FINISHED] Training step complete.")
     
     G.eval()
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M")
@@ -182,11 +190,14 @@ def train():
                 score = top_dists[rand_choice].item()
                 f.write(f"{h_str}\t{r_str}\t{t_str}\t{score:.4f}\n")
 
-    torch.save({
-        'G_state': G.state_dict(),
-        'D_state': D.state_dict(),
-        'epoch': EPOCHS
-    }, CHECKPOINT_PATH)
+    torch.save(
+        {
+            "G_state": G.state_dict(),
+            "D_state": D.state_dict(),
+            "epoch": min(MAX_EPOCHS, end_epoch if "end_epoch" in locals() else start_epoch),
+        },
+        CHECKPOINT_PATH,
+    )
     print("[SUCCESS] Checkpoint saved.")
 
 if __name__ == "__main__":
