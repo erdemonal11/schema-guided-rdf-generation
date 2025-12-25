@@ -2,19 +2,20 @@ import torch
 import torch.nn as nn
 
 class Generator(nn.Module):
-    def __init__(self, embedding_dim=32, hidden_dim=64, num_relations=0):
+    def __init__(self, embedding_dim=256, hidden_dim=512, num_relations=0):
         super(Generator, self).__init__()
         self.rel_embedding = nn.Embedding(num_relations, embedding_dim)
 
         self.net = nn.Sequential(
             nn.Linear(embedding_dim * 2, hidden_dim),
             nn.BatchNorm1d(hidden_dim),
-            nn.LeakyReLU(0.2),
+            nn.LeakyReLU(0.2, inplace=True),
+            
             nn.Linear(hidden_dim, hidden_dim),
             nn.BatchNorm1d(hidden_dim),
-            nn.LeakyReLU(0.2),
-            nn.Linear(hidden_dim, embedding_dim),
-            nn.Tanh()
+            nn.LeakyReLU(0.2, inplace=True),
+            
+            nn.Linear(hidden_dim, embedding_dim)
         )
 
     def forward(self, noise, relation_ids):
@@ -23,18 +24,19 @@ class Generator(nn.Module):
         return self.net(x)
 
 class Discriminator(nn.Module):
-    def __init__(self, num_entities, num_relations, embedding_dim=32, hidden_dim=64):
+    def __init__(self, num_entities, num_relations, embedding_dim=256, hidden_dim=512):
         super(Discriminator, self).__init__()
         self.ent_embedding = nn.Embedding(num_entities, embedding_dim)
         self.rel_embedding = nn.Embedding(num_relations, embedding_dim)
 
         self.net = nn.Sequential(
             nn.Linear(embedding_dim * 3, hidden_dim),
-            nn.LeakyReLU(0.2),
-            nn.Dropout(0.3),
-            nn.Linear(hidden_dim, hidden_dim // 2),
-            nn.LeakyReLU(0.2),
-            nn.Linear(hidden_dim // 2, 1)
+            nn.LeakyReLU(0.2, inplace=True),
+            
+            nn.Linear(hidden_dim, hidden_dim),
+            nn.LeakyReLU(0.2, inplace=True),
+            
+            nn.Linear(hidden_dim, 1)
         )
 
     def forward(self, head_ids, rel_ids, tail_embedding):

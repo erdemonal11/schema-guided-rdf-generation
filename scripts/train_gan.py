@@ -9,13 +9,14 @@ import numpy as np
 import gc
 from tqdm import tqdm
 
-EMBEDDING_DIM = 128   
+EMBEDDING_DIM = 256   
 BATCH_SIZE = 8192
-HIDDEN_DIM = 256
+HIDDEN_DIM = 512
 MAX_EPOCHS = 1000
 EPOCHS_PER_RUN = 20
-LR = 0.00005  
-CLIP_VALUE = 0.01  
+LR = 0.0001
+CLIP_VALUE = 0.01 
+N_CRITIC = 5         
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -103,6 +104,8 @@ def train():
             checkpoint = torch.load(CHECKPOINT_PATH, map_location=device)
             G.load_state_dict(checkpoint["G_state"])
             D.load_state_dict(checkpoint["D_state"])
+            optimizer_G.load_state_dict(checkpoint["optimizer_G"])
+            optimizer_D.load_state_dict(checkpoint["optimizer_D"])
             start_epoch = int(checkpoint.get("epoch", 0))
             print(f"[INFO] Resuming from epoch {start_epoch}")
         except: 
@@ -130,14 +133,14 @@ def train():
             z = torch.randn(h.size(0), EMBEDDING_DIM, device=device)
             fake_emb = G(z, r).detach()
             d_fake = D(h, r, fake_emb).mean()
-            d_loss = -(d_real - d_fake)
+            d_loss = d_fake - d_real 
             d_loss.backward()
             optimizer_D.step()
             
             for p in D.parameters(): p.data.clamp_(-CLIP_VALUE, CLIP_VALUE)
             total_d += d_loss.item()
 
-            if i % 5 == 0:
+            if i % N_CRITIC == 0:
                 optimizer_G.zero_grad()
                 z = torch.randn(h.size(0), EMBEDDING_DIM, device=device)
                 gen_fake = G(z, r)
@@ -151,6 +154,8 @@ def train():
                 torch.save({
                     "G_state": G.state_dict(),
                     "D_state": D.state_dict(),
+                    "optimizer_G": optimizer_G.state_dict(),
+                    "optimizer_D": optimizer_D.state_dict(),
                     "epoch": epoch
                 }, CHECKPOINT_PATH)
             
@@ -167,12 +172,75 @@ def train():
             f.write(f"{epoch+1},{avg_d:.6f},{avg_g:.6f}\n")
 
     print("[INFO] Saving final checkpoint...")
-    torch.save({"G_state": G.state_dict(), "D_state": D.state_dict(), "epoch": end_epoch}, CHECKPOINT_PATH)
+    torch.save({
+        "G_state": G.state_dict(), 
+        "D_state": D.state_dict(),
+        "optimizer_G": optimizer_G.state_dict(),
+        "optimizer_D": optimizer_D.state_dict(),
+        "epoch": end_epoch
+    }, CHECKPOINT_PATH)
     print("[SUCCESS] Training cycle complete.")
     
+    print("[INFO] Generating synthetic triples (Inference with Novelty Check)...")
+    G.eval()
+    D.eval()
+    
+    seen_triples = set()
+    try:
+        print("[INFO] Building novelty check set (this may take memory)...")
+        seen_triples = set(zip(dataset.head.tolist(), dataset.rel.tolist(), dataset.tail.tolist()))
+        print(f"[INFO] Seen triples set created. Size: {len(seen_triples)}")
+    except Exception as e:
+        print(f"[WARN] Could not create novelty set (RAM issue?): {e}")
+        print("[WARN] Proceeding without novelty check.")
+    
+    num_generate = 5000
+    generated_lines = []
+    
+    with torch.no_grad():
+        sample_size = min(100000, dataset.num_entities)
+        candidate_indices = torch.randint(0, dataset.num_entities, (sample_size,), device=device)
+        candidate_embs = D.get_entity_embedding(candidate_indices)
+        
+        generated_count = 0
+        pbar_gen = tqdm(total=num_generate, desc="Generating", ncols=80)
+        
+        while generated_count < num_generate:
+            current_batch_size = 100
+            
+            indices = torch.randint(0, len(dataset), (current_batch_size,))
+            batch_h = dataset.head[indices].to(device)
+            batch_r = dataset.rel[indices].to(device)
+            
+            z = torch.randn(current_batch_size, EMBEDDING_DIM, device=device)
+            fake_tail_emb = G(z, batch_r)
+            
+            dists = torch.cdist(fake_tail_emb, candidate_embs, p=2)
+            min_dist, local_min_idx = torch.min(dists, dim=1)
+            predicted_tail_ids = candidate_indices[local_min_idx]
+            
+            scores = D(batch_h, batch_r, candidate_embs[local_min_idx]).squeeze()
+            
+            for h, r, t, s in zip(batch_h, batch_r, predicted_tail_ids, scores):
+                triple = (h.item(), r.item(), t.item())
+                
+                if triple not in seen_triples:
+                    generated_lines.append(f"{h.item()}\t{r.item()}\t{t.item()}\t{s.item():.4f}")
+                    seen_triples.add(triple) 
+                    generated_count += 1
+                    pbar_gen.update(1)
+                    
+                if generated_count >= num_generate:
+                    break
+        
+        pbar_gen.close()
+
     with open(SYNTHETIC_DIR / "generated.txt", "w") as f:
         f.write("HEAD\tREL\tTAIL\tSCORE\n")
-        f.write("gen\t0\tgen\t0.0\n")
+        for line in generated_lines:
+            f.write(line + "\n")
+            
+    print(f"[SUCCESS] {len(generated_lines)} novel triples generated.")
 
 if __name__ == "__main__":
     train()
