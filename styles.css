@@ -125,27 +125,78 @@ h2 {
   overflow-x: auto;
 }
 
-table {
+.kg-table {
   width: 100%;
   border-collapse: collapse;
+  background: #121212;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-th {
+.kg-table th {
+  background: #1a1a1a;
+  color: #999;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 1px;
+  padding: 15px;
   text-align: left;
-  font-weight: 700;
-  border-top: 2px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 2px solid #333;
+  font-weight: 600;
 }
 
-td {
-  font-family: "Courier New", monospace;
-  border-bottom: 1px solid #eee;
+.kg-table td {
+  padding: 14px;
+  border-bottom: 1px solid #222;
+  color: #e0e0e0;
+  font-size: 13px;
 }
 
-.col-relation { width: 25%; }
-.col-entity { width: 50%; }
-.col-score { width: 15%; }
-.col-type { width: 10%; }
+.kg-table td:nth-child(2) {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  color: #4fc3f7;
+  font-size: 12px;
+}
+
+.conf-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.conf-bar {
+  height: 4px;
+  width: 40px;
+  background: #333;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.conf-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.status-tag {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-verified {
+  background: rgba(0, 200, 83, 0.1);
+  color: #00c853;
+  border: 1px solid #00c853;
+}
+
+.status-match {
+  background: rgba(255, 171, 0, 0.1);
+  color: #ffab00;
+  border: 1px solid #ffab00;
+}
 
 .table-loading {
   text-align: center;

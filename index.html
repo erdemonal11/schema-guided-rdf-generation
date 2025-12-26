@@ -96,18 +96,19 @@
         </p>
 
         <div class="table-wrapper">
-          <table>
+          <table class="kg-table">
             <thead>
               <tr>
-                <th class="col-relation">Relation</th>
-                <th class="col-entity">Generated Entity</th>
-                <th class="col-score">Score</th>
-                <th class="col-type">Type</th>
+                <th>Subject</th>
+                <th>Predicate</th>
+                <th>Object</th>
+                <th>Score</th>
+                <th>Ontology Check</th>
               </tr>
             </thead>
             <tbody id="hypothesesTable">
               <tr>
-                <td colspan="4" class="table-loading">
+                <td colspan="5" class="table-loading">
                   Loading model outputs...
                 </td>
               </tr>
@@ -179,11 +180,25 @@
 
           data.hypotheses.forEach((h) => {
             const tr = document.createElement("tr");
+            
+            const scoreVal = parseFloat(h.score);
+            const normalized = Math.min(100, Math.max(0, (scoreVal + 0.5) * 100));
+            const barColor = scoreVal > 0 ? "#00c853" : "#ffab00";
+            const statusClass = h.status === "Verified" ? "status-verified" : "status-match";
+
             tr.innerHTML = `
-              <td><span class="muted">${h.head}</span><br><b>${h.relation}</b></td>
+              <td>${h.head}</td>
+              <td>${h.relation}</td>
               <td>${h.tail}</td>
-              <td class="mono">${h.score}</td>
-              <td>${h.is_novel ? '<span class="novel-tag">NOVEL</span>' : 'EXISTING'}</td>
+              <td>
+                <div class="conf-wrapper">
+                  <span class="mono">${h.score}</span>
+                  <div class="conf-bar">
+                    <div class="conf-fill" style="width: ${normalized}%; background: ${barColor};"></div>
+                  </div>
+                </div>
+              </td>
+              <td><span class="status-tag ${statusClass}">${h.status}</span></td>
             `;
             tbody.appendChild(tr);
           });

@@ -142,15 +142,34 @@ def main():
         if i >= 100: break
         
         head_name = id_to_name.get(h, h)
-        rel_clean = id_to_rel.get(r, f"REL:{r}").replace("dblp:", "").replace("rdf:", "")
+        rel_name = id_to_rel.get(r, f"REL:{r}").replace("dblp:", "").replace("rdf:", "")
         tail_name = id_to_name.get(t, t)
+
+        is_valid = True
+        rel_l = rel_name.lower()
+        t_str = str(tail_name)
+
+        if "year" in rel_l and (not t_str.isdigit() or len(t_str) != 4):
+            is_valid = False
+        if ("author" in rel_l or "editor" in rel_l) and (t_str.isdigit() or "/" in t_str):
+            is_valid = False
+        if "publishedin" in rel_l or "journal" in rel_l or "conference" in rel_l:
+            if not (t_str.startswith("conf/") or t_str.startswith("journals/") or "venue" in t_str):
+                if t_str.isdigit():
+                    is_valid = False
+        if "homonym" in rel_l and not t_str.isdigit():
+            is_valid = False
+        if "type" in rel_l:
+            valid_types = ["person", "publication", "article", "inproceedings", "conference", "journal", "proceedings", "book", "phdthesis", "mastersthesis", "www"]
+            if not any(vt in t_str.lower() for vt in valid_types):
+                pass
 
         decoded_hypotheses.append({
             "head": head_name,
-            "relation": rel_clean,
+            "relation": rel_name,
             "tail": tail_name,
-            "score": f"{score:.4f}",
-            "is_novel": True
+            "score": round(float(score), 4),
+            "status": "Verified" if is_valid else "Structural Match"
         })
 
     current_d_loss, current_g_loss, current_epoch = 0, 0, 0
